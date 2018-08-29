@@ -61,14 +61,6 @@ open class HoveringTextField: HoveringField {
         }
     }
     
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     open override func setup() {
         textviewHeight = textview.font!.lineHeight + 5
         placeholderTopConstant = 0

@@ -70,4 +70,28 @@ open class HoveringTextView: HoveringField {
     @IBInspectable open override var isExpandable: Bool {
         didSet { }
     }
+    
+    open var isInflatable: Bool = true
+    
+    var isInflated: Bool = false
+    
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if (isInflatable && !isInflated) {
+            textviewHeightConstraint?.constant = textview.font!.lineHeight + 10
+        }
+    }
+    
+    open override func textViewDidBeginEditing(_ textView: UITextView) {
+        super.textViewDidBeginEditing(textView)
+        
+        if isInflatable && !isInflated {
+            isInflated = true
+            textviewHeightConstraint?.constant = textviewHeight
+            UIView.animate(withDuration: 0.2, animations: { [weak self] in
+                self?.layoutIfNeeded()
+            })
+        }
+    }
 }
