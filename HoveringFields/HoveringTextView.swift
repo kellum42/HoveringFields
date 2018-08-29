@@ -83,15 +83,13 @@ open class HoveringTextView: HoveringField {
         }
     }
     
-    open override func textViewDidBeginEditing(_ textView: UITextView) {
-        super.textViewDidBeginEditing(textView)
+    open override func textViewDidChange(_ textView: UITextView) {
+        super.textViewDidChange(textView)
         
         if isInflatable && !isInflated {
             isInflated = true
             textviewHeightConstraint?.constant = textviewHeight
-            UIView.animate(withDuration: 0.2, animations: { [weak self] in
-                self?.layoutIfNeeded()
-            })
+            layoutIfNeeded()
         }
     }
 }

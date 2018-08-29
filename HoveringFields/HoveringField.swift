@@ -38,7 +38,7 @@ open class HoveringField: PlaceholderTextView {
         return l
     }()
     
-    private var savedTextCount: Int = 0
+    var savedTextCount: Int = 0
     
     open var placeholderTopConstant: CGFloat = 7
     
@@ -72,6 +72,7 @@ open class HoveringField: PlaceholderTextView {
         placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
         placeholderLabel.leadingAnchor.constraint(equalTo: textview.leadingAnchor, constant: 5).isActive = true
         placeholderLabel.topAnchor.constraint(equalTo: textview.topAnchor, constant: placeholderTopConstant).isActive = true
+//        placeholderLabel.topAnchor.constraint(equalTo: topAnchor, constant: titleLabel.font.lineHeight + titleLabelBottomConstant + placeholderTopConstant).isActive = true
         placeholderLabel.trailingAnchor.constraint(equalTo: textview.trailingAnchor, constant: 0).isActive = true
     }
     
